@@ -13,11 +13,6 @@ jobs:
           owner: chihiro-adachi
           repositories: |
             test-github-apps-target
-      - name: Use token
-        env:
-          TOKEN: ${{ steps.app-token.outputs.token }}
-        run: |
-          echo "The generated token is masked: ${TOKEN}"
       - name: Create PR
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
