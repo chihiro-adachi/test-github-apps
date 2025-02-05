@@ -1,5 +1,6 @@
 name: 'github apps test'
 on:
+  push:
   workflow_dispatch:
 jobs:
   pull_request:
