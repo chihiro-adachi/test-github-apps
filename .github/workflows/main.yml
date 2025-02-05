@@ -3,6 +3,15 @@ on:
   workflow_dispatch:
 jobs:
   pull_request:
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
     steps:
-      - run: echo 123
+      - uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.PRIVATE_KEY }}
+      - name: Use token
+        env:
+          TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          echo "The generated token is masked: ${TOKEN}"
