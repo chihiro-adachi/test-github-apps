@@ -18,7 +18,7 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
-          git config --global url."https://x-access-token:${GH_TOKEN}@github.com/chihiro-adachi/".insteadOf git@github.com:chihiro-adachi/
+          git config --global url."https://x-access-token:${GH_TOKEN}@github.com/".insteadOf "https://github.com/"
           git config --global user.email "you@example.com"
           git config --global user.name "Your Name"
   
