@@ -23,6 +23,7 @@ jobs:
           gh repo clone chihiro-adachi/test-github-apps-target
           ls -la
           cd test-github-apps-target
+          git remote -v
           git checkout -b ${BRANCH} origin/main
           echo 123 >> test.txt
           git add test.txt
