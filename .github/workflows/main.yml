@@ -18,6 +18,7 @@ jobs:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           BRANCH: temp-1234
         run: |
+          git config --global url."https://x-access-token:${TOKEN}@github.com/chihiro-adachi/".insteadOf git@github.com:org-name/
           git config --global user.email "you@example.com"
           git config --global user.name "Chihiro Adachi"
           gh repo clone chihiro-adachi/test-github-apps-target
