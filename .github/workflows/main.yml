@@ -27,4 +27,5 @@ jobs:
           cd test-github-apps-target
           git checkout -b temp-1234 origin/main
           echo 123 >> test.txt
+          git add .
           git commit -m "test 123"
