@@ -22,6 +22,8 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "Chihiro Adachi"
           gh repo clone chihiro-adachi/test-github-apps-target
           ls -la
           cd test-github-apps-target
