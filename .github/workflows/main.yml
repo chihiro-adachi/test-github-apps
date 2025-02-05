@@ -22,11 +22,11 @@ jobs:
           git config --global user.name "Chihiro Adachi"
           
           CLONE_DIR=$(mktemp -d)
-          git clone --depth=1 https://x-access-token:${GH_TOKEN}@github.com/chihiro-adachi/test-github-apps-target.git ${CLONE_DIR}
+          git clone https://x-access-token:${GH_TOKEN}@github.com/chihiro-adachi/test-github-apps-target.git ${CLONE_DIR}
           cd ${CLONE_DIR}
           git checkout -b ${BRANCH} origin/main
           echo 123 >> test.txt
           git add test.txt
           git commit -m "test 123"
           git push -u origin ${BRANCH}
-          gh pr create --fill --base main --head ${BRANCH}
+          #gh pr create --fill --base main --head ${BRANCH}
