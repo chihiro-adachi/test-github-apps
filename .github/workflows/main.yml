@@ -20,9 +20,8 @@ jobs:
           echo "The generated token is masked: ${TOKEN}"
       - name: Create PR
         env:
-          TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
-          git config --global url."https://x-access-token:${TOKEN}@github.com/chihiro-adachi/".insteadOf git@github.com:org-name/
           gh repo clone chihiro-adachi/test-github-apps-target
           ls -la
           cd test-github-apps-target
