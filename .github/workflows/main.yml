@@ -28,7 +28,7 @@ jobs:
         env:
           TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
-          git remote set-url origin "https://x-access-token:${TOKEN}@github.com/chihiro-adachi/test-github-apps-target"
+          git remote set-url --push origin "https://x-access-token:${TOKEN}@github.com/chihiro-adachi/test-github-apps-target"
           git config --global user.email "chihiro-adachi@example.com"
           git config --global user.name "Chihiro Adachi"
           git checkout -b temp-1234 origin/main
