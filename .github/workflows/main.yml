@@ -42,3 +42,4 @@ jobs:
           git add .
           git commit -m "test 123"
           git push origin temp-1234
+          gh pr create --fill --base main --head temp-1234
