@@ -27,8 +27,9 @@ jobs:
         working-directory: test-github-apps-target
         env:
           TOKEN: ${{ steps.app-token.outputs.token }}
+          PAT: ${{ secrets.PAT }}
         run: |
-          git remote set-url origin "https://github-actions:${TOKEN}@github.com/chihiro-adachi/test-github-apps-target"
+          git remote set-url origin "https://github-actions:${PAT}@github.com/chihiro-adachi/test-github-apps-target"
           git remote -v
 
           git config --global user.email "chihiro-adachi@example.com"
