@@ -30,14 +30,15 @@ jobs:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           PAT: ${{ secrets.PAT }}
         run: |
-          git config --global url."https://x-access-token:${TOKEN}@github.com/".insteadOf "git@github.com"
-          git config --global url."https://x-access-token:${TOKEN}@github.com/".insteadOf "https://github.com/"
+          # git config --global url."https://x-access-token:${TOKEN}@github.com/".insteadOf "git@github.com"
+          # git config --global url."https://x-access-token:${TOKEN}@github.com/".insteadOf "https://github.com/"
 
-          git remote set-url origin "https://x-access-token:${TOKEN}@github.com/chihiro-adachi/test-github-apps-target"
-          git remote -v
+          # git remote set-url origin "https://x-access-token:${TOKEN}@github.com/chihiro-adachi/test-github-apps-target"
+          # git remote -v
 
           git config --global user.email "chihiro-adachi@example.com"
           git config --global user.name "Chihiro Adachi"
+          git fetch origin
           git checkout -b temp-1234 origin/main
           echo 123 >> test.txt
           git add .
