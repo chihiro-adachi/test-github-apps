@@ -19,7 +19,7 @@ jobs:
             test-github-apps-target
       - uses: actions/checkout@v4
         with:
-          repository: test-github-apps-target
+          repository: chihiro-adachi/test-github-apps-target
           path: test-github-apps-target
           token: ${{ steps.app-token.outputs.token }}
       - name: Create PR
