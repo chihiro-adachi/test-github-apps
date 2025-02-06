@@ -22,11 +22,13 @@ jobs:
           repository: chihiro-adachi/test-github-apps-target
           path: test-github-apps-target
           token: ${{ steps.app-token.outputs.token }}
+          persist-credentials: false
       - name: Create PR
         working-directory: test-github-apps-target
         env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
+          git remote set-url origin "https://x-access-token:${TOKEN}@github.com/chihiro-adachi/test-github-apps-target"
           git config --global user.email "chihiro-adachi@example.com"
           git config --global user.name "Chihiro Adachi"
           git checkout -b temp-1234 origin/main
@@ -34,4 +36,5 @@ jobs:
           git add .
           git commit -m "test 123"
           git remote -v
+          git remote set-url 
           git push origin temp-1234
