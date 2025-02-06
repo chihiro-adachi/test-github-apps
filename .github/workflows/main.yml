@@ -27,6 +27,7 @@ jobs:
         working-directory: test-github-apps-target
         env:
           TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
           PAT: ${{ secrets.PAT }}
         run: |
           git config --global url."https://x-access-token:${TOKEN}@github.com/".insteadOf "git@github.com"
