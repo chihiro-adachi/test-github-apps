@@ -17,17 +17,18 @@ jobs:
           owner: chihiro-adachi
           repositories: |
             test-github-apps-target
+      - uses: actions/checkout@v4
+        with:
+          repository: test-github-apps-target
+          path: test-github-apps-target
+          token: ${{ steps.app-token.outputs.token }}
       - name: Create PR
+        working-directory: test-github-apps-target
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
-          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
-          git config --global url."https://x-access-token:${GH_TOKEN}@github.com/".insteadOf "https://github.com/"
-          git config --global user.email "you@example.com"
-          git config --global user.name "Your Name"
-  
-          git clone https://x-access-token:${GH_TOKEN}@github.com/chihiro-adachi/test-github-apps-target.git
-          cd test-github-apps-target
+          git config --global user.email "chihiro-adachi@example.com"
+          git config --global user.name "Chihiro Adachi"
           git checkout -b temp-1234 origin/main
           echo 123 >> test.txt
           git add .
