@@ -33,4 +33,5 @@ jobs:
           echo 123 >> test.txt
           git add .
           git commit -m "test 123"
+          git remote -v
           git push origin temp-1234
