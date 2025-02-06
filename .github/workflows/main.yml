@@ -22,7 +22,7 @@ jobs:
           repository: chihiro-adachi/test-github-apps-target
           path: test-github-apps-target
           token: ${{ steps.app-token.outputs.token }}
-          persist-credentials: false
+          # persist-credentials: false
       - name: Create PR
         working-directory: test-github-apps-target
         env:
