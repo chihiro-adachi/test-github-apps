@@ -29,6 +29,9 @@ jobs:
           TOKEN: ${{ steps.app-token.outputs.token }}
           PAT: ${{ secrets.PAT }}
         run: |
+          git config --global url."https://x-access-token:${TOKEN}@github.com/".insteadOf "git@github.com"
+          git config --global url."https://x-access-token:${TOKEN}@github.com/".insteadOf "https://github.com/"
+
           git remote set-url origin "https://x-access-token:${TOKEN}@github.com/chihiro-adachi/test-github-apps-target"
           git remote -v
 
